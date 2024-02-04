@@ -1,8 +1,27 @@
-import Presenter from './presenter/presenter.js';
+import MainPresenter from './presenter/main-presenter';
+import HeaderPresenter from './presenter/header-presenter';
+import './mock/destination.js';
+import DestinationModel from './model/destination-model.js';
+import EventPointsModel from './model/event-points-model.js';
+import OffersModel from './model/offers-model.js';
 
-const tripMainElement = document.querySelector('.trip-main');
-const tripEventsElement = document.querySelector('.trip-events');
-const filtersElement = document.querySelector('.trip-controls__filters');
-const presenter = new Presenter({tripEventsContainer: tripEventsElement, headerInfoContainer: tripMainElement, filtersContainer: filtersElement});
+const siteTripMainElement = document.querySelector('.trip-main');
+const siteTripEventsElements = document.querySelector('.trip-events');
+const siteFiltersElement = document.querySelector('.trip-controls__filters');
+const destinationModel = new DestinationModel();
+const eventPointsModel = new EventPointsModel();
+const offersModel = new OffersModel();
 
-presenter.init();
+const headerPresenter = new HeaderPresenter({
+  tripHeaderInfo: siteTripMainElement,
+  tripHeaderFilter: siteFiltersElement
+});
+const mainPresenter = new MainPresenter({
+  tripContainer: siteTripEventsElements,
+  destinationModel,
+  eventPointsModel,
+  offersModel
+});
+
+headerPresenter.init();
+mainPresenter.init();
