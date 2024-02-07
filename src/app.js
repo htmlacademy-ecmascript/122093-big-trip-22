@@ -12,7 +12,7 @@ const siteTripMainElement = document.querySelector('.trip-main');
 const siteTripEventsElements = document.querySelector('.trip-events');
 const siteFiltersElement = document.querySelector('.trip-controls__filters');
 
-const AUTHORIZATION = 'Basic pdkrlmvspkv7';
+const AUTHORIZATION = 'Basic pdkrlmhwplk7';
 const END_POINT = 'https://22.objects.htmlacademy.pro/big-trip';
 
 const pointApiService = new PointApiService(END_POINT, AUTHORIZATION);

@@ -25,7 +25,7 @@ export default class AddPointPresenter {
     this.#addPointComponent = new EditPointView({
       destinations: this.#destinationModel.get(),
       pointOffers: this.#offersModel.get(),
-      onCloseClick: this.#cancelClickHandler,
+      onCloseClick: this.#cancelButtonClickHandler,
       onSaveEdit: this.#formSubmitHandler,
       editorMode: EditType.CREATING,
     });
@@ -38,9 +38,9 @@ export default class AddPointPresenter {
       return;
     }
 
-    this.#handleDestroy({isCanceled});
     remove(this.#addPointComponent);
     this.#addPointComponent = null;
+    this.#handleDestroy({isCanceled});
     document.removeEventListener('keydown', this.#escKeyDownHandler);
   }
 
@@ -67,7 +67,7 @@ export default class AddPointPresenter {
     this.#addPointComponent.shake(resetFormState);
   };
 
-  #cancelClickHandler = () => {
+  #cancelButtonClickHandler = () => {
     this.destroy({isCanceled: true});
   };
 
