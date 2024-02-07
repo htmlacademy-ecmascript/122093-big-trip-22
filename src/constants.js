@@ -32,7 +32,7 @@ export const SourceUrl = {
   DESTINATIONS: 'destinations',
 };
 
-export const SortTypes = {
+export const SortType = {
   DAY: 'day',
   EVENT: 'event',
   TIME: 'time',
@@ -40,12 +40,12 @@ export const SortTypes = {
   OFFER: 'offer'
 };
 
-export const enabledSortType = {
-  [SortTypes.DAY]: true,
-  [SortTypes.EVENT]: false,
-  [SortTypes.TIME]: true,
-  [SortTypes.PRICE]: true,
-  [SortTypes.OFFER]: false,
+export const EnabledSortType = {
+  [SortType.DAY]: true,
+  [SortType.EVENT]: false,
+  [SortType.TIME]: true,
+  [SortType.PRICE]: true,
+  [SortType.OFFER]: false,
 };
 
 export const FilterType = {
@@ -66,16 +66,18 @@ export const UpdateType = {
   MINOR: 'MINOR',
   MAJOR: 'MAJOR',
   INIT: 'INIT',
+  ERROR: 'ERROR',
 };
 
 export const EmptyListMessage = {
   EVERYTHING: 'Click New Event to create your first point',
   FUTURE: 'There are no future events now',
   PRESENT: 'There are no present events now',
-  PAST: 'There are no past events now'
+  PAST: 'There are no past events now',
+  ERROR: 'Failed to load latest route information'
 };
 
-export const MODE = {
+export const Mode = {
   DEFAULT: 'DEFAULT',
   EDITING: 'EDITING',
 };
@@ -92,7 +94,7 @@ export const POINT_EMPTY = {
   destination: null,
   isFavorite: false,
   offers: [],
-  type: EVENT_TYPES[1],
+  type: EVENT_TYPES[5],
 };
 
 export const DESTINATION_ITEMS_COUNT = 3;
