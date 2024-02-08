@@ -4,7 +4,7 @@ import {EditType, UpdateType, UserAction} from '../constants.js';
 
 export default class AddPointPresenter {
   #container = null;
-  #destinationModel = [];
+  #destinationsModel = [];
   #offersModel = [];
   #addPointComponent = null;
   #handleDataChange = null;
@@ -12,7 +12,7 @@ export default class AddPointPresenter {
 
   constructor({container, destinationModel, offersModel, onDataChange, onDestroy}) {
     this.#container = container;
-    this.#destinationModel = destinationModel;
+    this.#destinationsModel = destinationModel;
     this.#offersModel = offersModel;
     this.#handleDataChange = onDataChange;
     this.#handleDestroy = onDestroy;
@@ -23,7 +23,7 @@ export default class AddPointPresenter {
       return;
     }
     this.#addPointComponent = new EditPointView({
-      destinations: this.#destinationModel.get(),
+      destinations: this.#destinationsModel.get(),
       pointOffers: this.#offersModel.get(),
       onCloseClick: this.#cancelButtonClickHandler,
       onSaveEdit: this.#formSubmitHandler,

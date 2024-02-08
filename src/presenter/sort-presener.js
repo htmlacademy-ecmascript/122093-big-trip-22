@@ -4,7 +4,7 @@ import ListSortView from '../view/list-sort-view.js';
 
 export default class SortPresenter {
   #container = null;
-  #sortType = [];
+  #sortTypes = [];
   #currentSortType = SortType.DAY;
   #sortComponent = null;
   #sortTypesChangeHandler = null;
@@ -12,7 +12,7 @@ export default class SortPresenter {
   constructor({ container, sortTypeHandler, currentSortType}) {
     this.#container = container;
     this.#currentSortType = currentSortType || SortType.DAY;
-    this.#sortType = Object.values(SortType).map((type) => ({
+    this.#sortTypes = Object.values(SortType).map((type) => ({
       type,
       isChecked: type === this.#currentSortType,
       isDisabled: !EnabledSortType[type],
@@ -24,7 +24,7 @@ export default class SortPresenter {
     const prevSortComponent = this.#sortComponent;
 
     this.#sortComponent = new ListSortView({
-      items: this.#sortType,
+      items: this.#sortTypes,
       onItemChange: this.#sortTypesChangeHandler,
     });
 
