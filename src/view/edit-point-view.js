@@ -256,11 +256,11 @@ export default class EditPointView extends AbstractStatefulView {
 
   _restoreHandlers = () => {
     if (this.#editorMode === EditType.EDITING) {
-      this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#onCloseClick);
+      this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#closeClickHandler);
       this.element.querySelector('.event__reset-btn').addEventListener('click', this.#deleteClickHandler);
     }
     if (this.#editorMode === EditType.CREATING) {
-      this.element.querySelector('.event__reset-btn').addEventListener('click', this.#onCloseClick);
+      this.element.querySelector('.event__reset-btn').addEventListener('click', this.#closeClickHandler);
     }
     this.element.querySelector('.event.event--edit').addEventListener('submit', this.#editFormSaveHandler);
     this.element.querySelector('.event__type-group').addEventListener('change', this.#typeChangeHandler);
@@ -278,6 +278,11 @@ export default class EditPointView extends AbstractStatefulView {
       ...this._state,
       offers: [...checkedOffers].map((item) => item.dataset.id)
     });
+  };
+
+  #closeClickHandler = (evt) => {
+    evt.preventDefault();
+    this.#onCloseClick();
   };
 
   #priceChangeHandler = (evt) => {
